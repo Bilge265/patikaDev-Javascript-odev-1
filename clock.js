@@ -4,15 +4,17 @@ let myName = document.getElementById("myName")
 myName.innerHTML = `${fullName}`
 
 function saatigoster(){
-    var zaman= new Date();
-    var saat= zaman.getHours();
-    var dakika= zaman.getMinutes();
-    var saniye= zaman.getSeconds();
-
+    let zaman= new Date();
+    let saat= zaman.getHours();
+    let dakika= zaman.getMinutes();
+    let saniye= zaman.getSeconds();
     saat=ciftsifirmi(saat);
     dakika=ciftsifirmi(dakika);
     saniye=ciftsifirmi(saniye);
-    document.getElementById('clock').innerHTML = saat + ":" + dakika + ":" + saniye;
+    let gun = zaman.getDay();
+    let gunler=["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+    
+    document.getElementById('clock').innerHTML = saat + ":" + dakika + ":" + saniye + " "+ gunler[gun];
     setTimeout('saatigoster()', 1000);
     }
     function ciftsifirmi(deger){
